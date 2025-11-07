@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-
+import ParticlesContainer from "@/components/particlesBg";
 const items = [
   {
     id: 1,
@@ -56,8 +56,9 @@ const PortfolioPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
+      <ParticlesContainer />
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
+        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-4xl md:text-8xl text-center">
           My Works
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">

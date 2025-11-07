@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
+import ParticlesContainer from "@/components/particlesBg";
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
@@ -39,14 +40,16 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="h-full"
+      className="h-full w-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <ParticlesContainer />
+
+      <div className="relative h-full flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 gap-12">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
+        <div className="w-full lg:w-1/2 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl text-center lg:text-left z-30">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -61,40 +64,51 @@ const Contact = () => {
               >
                 {letter}
               </motion.span>
-            ))}
+            ))}{" "}
             😊
           </div>
         </div>
+
         {/* FORM CONTAINER */}
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="w-full lg:w-1/2 bg-red-50 rounded-2xl shadow-lg text-base sm:text-lg md:text-xl flex flex-col gap-6 sm:gap-8 justify-center p-6 sm:p-10 md:p-16 z-30"
         >
-          <span>Dear Souvik Sarkar,</span>
+          <span className="font-medium">Dear Souvik Sarkar,</span>
+
           <textarea
-            rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            rows={5}
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none p-2"
             name="user_message"
+            placeholder="Write your message here..."
           />
-          <span>My mail address is:</span>
+
+          <span className="font-medium">My mail address is:</span>
           <input
             name="user_email"
             type="email"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-transparent border-b-2 border-b-black outline-none p-2"
+            placeholder="youremail@example.com"
           />
-          <span>Regards</span>
-          <button className="bg-purple-200 cursor-pointer rounded font-semibold text-gray-600 p-4">
+
+          <span className="font-medium">Regards</span>
+
+          <button
+            className="bg-purple-200 hover:bg-purple-300 transition-colors cursor-pointer rounded-xl font-semibold text-gray-700 p-3 sm:p-4"
+            type="submit"
+          >
             Send
           </button>
+
           {success && (
-            <span className="text-green-600 font-semibold">
-              Your message has been sent successfully!
+            <span className="text-green-600 font-semibold text-sm sm:text-base">
+               Your message has been sent successfully!
             </span>
           )}
           {error && (
-            <span className="text-red-600 font-semibold">
-              Something went wrong!
+            <span className="text-red-600 font-semibold text-sm sm:text-base">
+               Something went wrong! Please try again.
             </span>
           )}
         </form>
