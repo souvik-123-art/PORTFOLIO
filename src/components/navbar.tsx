@@ -13,20 +13,52 @@ const links = [
 ];
 const social = [
   {
-    url: "#",
-    element: <Image className="hover:-translate-y-1 transition-all duration-300" src={"/github.png"} alt="" height={30} width={30} />,
+    url: "https://github.com/souvik-123-art",
+    element: (
+      <Image
+        className="hover:-translate-y-1 transition-all duration-300"
+        src={"/github.png"}
+        alt=""
+        height={30}
+        width={30}
+      />
+    ),
   },
   {
-    url: "#",
-    element: <Image className="hover:-translate-y-1 transition-all duration-300" src={"/linkedin.png"} alt="" height={30} width={30} />,
+    url: "https://www.linkedin.com/in/souvik-sarkar-a33698362",
+    element: (
+      <Image
+        className="hover:-translate-y-1 transition-all duration-300"
+        src={"/linkedin.png"}
+        alt=""
+        height={30}
+        width={30}
+      />
+    ),
   },
   {
-    url: "#",
-    element: <Image className="hover:-translate-y-1 transition-all duration-300" src={"/facebook.png"} alt="" height={30} width={30} />,
+    url: "https://www.facebook.com/profile.php?id=100028627750484",
+    element: (
+      <Image
+        className="hover:-translate-y-1 transition-all duration-300"
+        src={"/facebook.png"}
+        alt=""
+        height={30}
+        width={30}
+      />
+    ),
   },
   {
-    url: "#",
-    element: <Image className="hover:-translate-y-1 transition-all duration-300" src={"/instagram.png"} alt="" height={30} width={30} />,
+    url: "https://www.instagram.com/souvik9674",
+    element: (
+      <Image
+        className="hover:-translate-y-1 transition-all duration-300"
+        src={"/instagram.png"}
+        alt=""
+        height={30}
+        width={30}
+      />
+    ),
   },
 ];
 const Navbar = () => {
@@ -80,7 +112,7 @@ const Navbar = () => {
       <div className=" gap-4 md:w-1/3 hidden md:flex justify-end">
         {social &&
           social.map((social, id) => (
-            <Link key={id} href={social.url}>
+            <Link key={id} target="blank" href={social.url}>
               {social.element}
             </Link>
           ))}
